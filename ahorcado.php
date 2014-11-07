@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Ahorcado</title>
+    <?php require_once('funciones.php')?>
     <link rel="icon" href="../../ico.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="estilo.css">

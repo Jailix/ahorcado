@@ -2,6 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <title>vista</title>
+    <?php require_once('funciones.php')?>
     <style>
         html,body{
             width: 100%;
