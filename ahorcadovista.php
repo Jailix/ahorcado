@@ -79,41 +79,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', end
         <div id="separador">
         </div>
         <div id="mitad">
-            <div class="teclado">
-                <div>A</div>
-                <div>B</div>
-                <div>C</div>
-                <div>D</div>
-                <div>E</div>
-            </div>
-            <div class="teclado">
-                <div>F</div>
-                <div>G</div>
-                <div>H</div>
-                <div>I</div>
-                <div>J</div>
-            </div>
-            <div class="teclado">
-                <div>K</div>
-                <div>L</div>
-                <div>M</div>
-                <div>N</div>
-                <div>Ñ</div>
-            </div>
-            <div class="teclado">
-                <div>O</div>
-                <div>P</div>
-                <div>Q</div>
-                <div>R</div>
-                <div>S</div>
-            </div>
-            <div class="teclado">
-                <div>T</div>
-                <div>U</div>
-                <div>V</div>
-                <div>X</div>
-                <div>Y</div>
-            </div>
+           <?php
+                echo $letras;
+            ?>
         </div>
     </div>
     <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
