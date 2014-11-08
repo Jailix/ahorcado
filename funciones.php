@@ -11,37 +11,38 @@ if($palabra=="" || ereg("^[a-zA-Z]$", $palabra)){
     $vidas=isset($_POST['vidas'])? filter_input(INPUT_POST, 'vidas',FILTER_SANITIZE_STRING):"3";
 
     $letra=isset($_POST['letra'])? filter_input(INPUT_POST, 'letra',FILTER_SANITIZE_STRING):"L";
-    if(true===palabra($palabra,$letra)){
+    if(false!==strpos($palabra,$letra)){
         $acertadas.=$letra;
     }else{
         $malas.=$letra;
         $vidas=$vidas-1;
     }
-    if($vidas==0){
+    if($vidas<0){
         echo "Perdistes";
     }
     $letras=letras($letra,$palabra,$acertadas,$malas);
     $letrascorrectas=letrasacertadas($palabra,$acertadas);
 }
-// Para mirar la palabra y comparar con la palabra actual
-//$palabra,$letra
-function palabra($palabra,$letra){
-    if(false!==strpos($palabra,$letra)){
-        return true;
-    }
-    return false;
-}
+
 //$palabra,$letra
 function letrasacertadas ($palabra,$acertadas){
     $letrascorrectas="";
     $contador=0;
     for($i=0;$i<strlen($palabra);$i++){
         if(strpos($acertadas,$palabra[$i])!==false){
-            $letrascorrectas.="<div style='background-color:green'>".$palabra[$i]."</div>";
+            if($contador==0){
+                 $letrascorrectas.="<div class='letras' id='mover'>".$palabra[$i]."</div>";
+            }else{
+                $letrascorrectas.="<div class='letras'>".$palabra[$i]."</div>";
+            }
             $contador++;
         }else{
+             if($contador==0){
+                 $letrascorrectas.="<div class='letras' id='mover'></div>";
+             }else{
+                $letrascorrectas.="<div class='letras'></div>";
+             }
             $contador--;
-            $letrascorrectas.="<div></div>";
         }
     }
     if($contador==strlen($palabra)){
@@ -54,9 +55,7 @@ function letras($letra,$palabra,$acertadas,$malas){
     $abecedario="ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
     $letras="";
     for($i=0;$i<28;$i++){
-        echo $abecedario[$i];
         if($i!=15){
-            echo $abecedario[$i];
             if(false!==strpos($acertadas,$abecedario[$i])){
                 if($i==14){
                     $letras.="<div style='background-color:green' onclick=mirar('Ñ',0)>Ñ</div>";

@@ -8,8 +8,7 @@
             width: 100%;
             height: 100%;
         }
-        #centrar{
-            width: 100%;
+        body{
             background-repeat: no-repeat;
             background: #3b679e; /* Old browsers */
             background: -moz-linear-gradient(-45deg,  #3b679e 0%, #207cca 27%, #207cca 27%, #2b88d9 56%, #7db9e8 100%); /* FF3.6+ */
@@ -18,12 +17,10 @@
             background: -o-linear-gradient(-45deg,  #3b679e 0%,#207cca 27%,#207cca 27%,#2b88d9 56%,#7db9e8 100%); /* Opera 11.10+ */
             background: -ms-linear-gradient(-45deg,  #3b679e 0%,#207cca 27%,#207cca 27%,#2b88d9 56%,#7db9e8 100%); /* IE10+ */
             background: linear-gradient(135deg,  #3b679e 0%,#207cca 27%,#207cca 27%,#2b88d9 56%,#7db9e8 100%); /* W3C */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b679e', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-            height: 100%;
         }
         .letras{
             text-align: center;
-            font-size: 400%;
+            font-size: 300%;
             float: left;
             width: 4%;
             height: 40%;
@@ -57,11 +54,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', end
         }
         .teclado div{
             text-align: center;
-            font-size: 400%;
+            font-size: 200%;
             float: left;
             width: 4%;
             margin: 0 8%;
-            margin-top: 3.5%;
         }
         #mitad{
             width: 50%;
@@ -70,7 +66,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', end
 </head>
 <body>
     <div id="centrar">
-        <div id="">
+        <div id="letra">
            <?php
                 echo $letrascorrectas;
             ?>
@@ -78,12 +74,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', end
         <div id="separador">
         </div>
         <div id="mitad">
+          <div class="teclado">
            <?php
                 echo $letras;
             ?>
+          </div>
         </div>
     </div>
-    <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
+    <form id="form" action="<?=$_SERVER['PHP_SELF']?>" method="post">
         <input style="display:hidden" type="text" id="acertada" name="acertadas" value="<?php echo $acertadas?>">
         <input style="display:hidden" type="text" id="malas" name="malas" value="<?php echo $malas?>">
         <input style="display:hidden" type="text" id="vidas" name="vidas" value="<?php echo $vidas ?>" required>
@@ -96,7 +94,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', end
             if(tipo==0 || tipo==1){//false
                 alert("Ya fue pulsada");
             }else{
-  document.getElementById("letra").value=""+letra;
+                document.getElementById("letra").value=letra;
+                document.getElementById("form").submit();
             }
         }
 
