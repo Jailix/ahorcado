@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>vista</title>
     <?php require_once('funciones.php')?>
     <style>
@@ -70,12 +70,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', end
 </head>
 <body>
     <div id="centrar">
-        <div id="letra">
-            <div class="letras" id="mover">C</div>
-            <div class="letras">O</div>
-            <div class="letras">C</div>
-            <div class="letras">H</div>
-            <div class="letras">E</div>
+        <div id="">
+           <?php
+                echo $letrascorrectas;
+            ?>
         </div>
         <div id="separador">
         </div>
@@ -86,8 +84,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', end
         </div>
     </div>
     <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-        <input style="display:hidden" type="text" id="letras" name="letras" value="" required>
-        <input style="display:hidden" type="text" id="palabra" name="palabra" value="" required>
+        <input style="display:hidden" type="text" id="acertada" name="acertadas" value="<?php echo $acertadas?>">
+        <input style="display:hidden" type="text" id="malas" name="malas" value="<?php echo $malas?>">
+        <input style="display:hidden" type="text" id="vidas" name="vidas" value="<?php echo $vidas ?>" required>
+        <input style="display:hidden" type="text" id="letra" name="letra" value="" required>
+        <input style="display:hidden" type="text" id="palabra" name="palabra" value="<?php echo $palabra?>" required>
         <input style="display:hidden" type="submit">
     </form>
     <script type="text/javascript">
@@ -95,8 +96,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', end
             if(tipo==0 || tipo==1){//false
                 alert("Ya fue pulsada");
             }else{
-                letra=letra+document.getElementById("letras").value;
-                document.getElementById("letras").innerHTML=letra;
+  document.getElementById("letra").value=""+letra;
             }
         }
 
