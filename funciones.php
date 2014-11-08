@@ -52,24 +52,25 @@ function letrasacertadas ($palabra,$acertadas){
 //$letra,$palabra,$acertadas,$malas
 function letras($letra,$palabra,$acertadas,$malas){
     $abecedario="ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
-    echo strlen($abecedario);
     $letras="";
     for($i=0;$i<28;$i++){
-        if($i!=14){
+        echo $abecedario[$i];
+        if($i!=15){
+            echo $abecedario[$i];
             if(false!==strpos($acertadas,$abecedario[$i])){
-                if($i==13){
+                if($i==14){
                     $letras.="<div style='background-color:green' onclick=mirar('Ñ',0)>Ñ</div>";
                 }else{
                     $letras.="<div style='background-color:green' onclick=mirar('".$abecedario[$i]."',0)>".$abecedario[$i]."</div>";
                 }
             }elseif(false!==strpos($malas,$abecedario[$i])){
-                if($i==13){
+                if($i==14){
                     $letras.="<div style='background-color:red' onclick=mirar('Ñ',1)>Ñ</div>";
                 }else{
                     $letras.="<div style='background-color:red' onclick=mirar('".$abecedario[$i]."',1)>".$abecedario[$i]."</div>";
                 }
             }else{
-                if($i==13){
+                if($i==14){
                     $letras.="<div style='background-color:blue' onclick=mirar('Ñ',2)>Ñ</div>";
                 }else{
                     $letras.="<div style='background-color:blue' onclick=mirar('".$abecedario[$i]."',2)>".$abecedario[$i]."</div>";
