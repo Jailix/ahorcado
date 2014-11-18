@@ -101,24 +101,25 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', end
         }
         #imagen{
             position: absolute;
+            left:50.6%;
             width:30%;
             height:40%;
         }
         #cabe{
             top: 31%;
-            left:60.8%;
+            left:66.8%;
         }
         #cuerpo{
             top: 41%;
-            left:60.8%;
+            left:66.8%;
         }
         #manos{
             top: 41%;
-            left:60.8%;
+            left:66.8%;
         }
         #pies{
             top: 49%;
-            left:60.85%;
+            left:66.85%;
         }
         input{
             visibility: hidden;

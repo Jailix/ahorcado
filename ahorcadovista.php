@@ -8,12 +8,12 @@
     <style>
 
         #mover{
-                margin-left:<?php echo 50-(strlen($palabra)*2.3)?>%;
+                margin-left:<?php echo 50-(strlen($palabra)*1.9)?>%;
         }
 
     </style>
 </head>
-<body>
+<body onload="partida()">
     <div id="centrar">
         <div id="letra">
            <?php
@@ -45,6 +45,7 @@
         <input type="submit">
     </form>
     <button onclick="palabra()">Introduce una palabra nueva</button>
+    <button onclick="enviar('Ç')">Nueva palabra rambom</button>
     <script type="text/javascript">
         function mirar(letra,tipo){
             if(tipo==0 || tipo==1){//false
@@ -60,24 +61,30 @@
             enviar(pala);
         }
         function enviar (pala){
-            document.getElementById("acertada").value="";
-            document.getElementById("malas").value='';
-            document.getElementById("vidas").value=6;
-            document.getElementById("valor").value='a';
-            document.getElementById("palabra").value=pala;
-            document.getElementById("form").submit();
-        }
-        i=<?php echo $numero?>;
-        if(i==0){
-            pala=prompt('Enhorabuena ganastes ponga la nueva palabra:','');
-            if(pala!=null){
-                enviar(pala);
+            if(/^([a-zA-Z]|ñ|Ñ)*$/.test(pala)|| pala=='Ç'){
+                document.getElementById("acertada").value="";
+                document.getElementById("malas").value='';
+                document.getElementById("vidas").value=6;
+                document.getElementById("valor").value='a';
+                document.getElementById("palabra").value=pala;
+                document.getElementById("form").submit();
             }else{
+                alert('Solo puedes introducir letras');
+            }
+        }
+        function partida (){
+            i=<?php echo $numero?>;
+            if(i==0){
+                pala=prompt('Enhorabuena ganastes ponga la nueva palabra:','');
+                if(pala!=null){
+                    enviar(pala);
+                }else{
+                    perdistes();
+                }
+            }else if(i==2){
+                alert("Perdistes se reseteara la partida con la misma palabra");
                 perdistes();
             }
-        }else if(i==2){
-            alert("Perdistes se reseteara la partida con la misma palabra");
-            perdistes();
         }
         function perdistes(){
             document.getElementById("acertada").value="";
@@ -86,6 +93,7 @@
             document.getElementById("valor").value='a';
             document.getElementById("form").submit();
         }
+
     </script>
 </body>
 </html>

@@ -1,18 +1,19 @@
 <?php
-$palabra=isset($_POST['palabra'])? filter_input(INPUT_POST, 'palabra',FILTER_SANITIZE_STRING):"hola";
-if($palabra=="" || ereg("^[a-zA-Z]$", $palabra)){
-    header('Location: ahorcado.php');
-}else{
+    $palabra=isset($_POST['palabra'])? filter_input(INPUT_POST, 'palabra',FILTER_SANITIZE_STRING):"hola";
+    $array = array("BAR","CAFETERIA","RELOJ","MUSICA","COCHE","PERRO");
+    if($palabra=='Ç'){
+        $palabra=$array[rand( 0 , count($array)-1)];
+    }
     $mostrarimagenes='';
     $numero=1;
     $palabra=strtoupper($palabra);
-    $acertadas=isset($_POST['acertadas'])? filter_input(INPUT_POST, 'acertadas',FILTER_SANITIZE_STRING):"H";
+    $acertadas=isset($_POST['acertadas'])? filter_input(INPUT_POST, 'acertadas',FILTER_SANITIZE_STRING):"";
 
-    $malas=isset($_POST['malas'])? filter_input(INPUT_POST, 'malas',FILTER_SANITIZE_STRING):"P";
+    $malas=isset($_POST['malas'])? filter_input(INPUT_POST, 'malas',FILTER_SANITIZE_STRING):"";
 
-    $vidas=isset($_POST['vidas'])? filter_input(INPUT_POST, 'vidas',FILTER_SANITIZE_STRING):"3";
+    $vidas=isset($_POST['vidas'])? filter_input(INPUT_POST, 'vidas',FILTER_SANITIZE_STRING):"5";
 
-    $letra=isset($_POST['letra'])? filter_input(INPUT_POST, 'letra',FILTER_SANITIZE_STRING):"L";
+    $letra=isset($_POST['letra'])? filter_input(INPUT_POST, 'letra',FILTER_SANITIZE_STRING):"4";
     if(false!==strpos($palabra,$letra)){
         $acertadas.=$letra;
     }else{
@@ -37,7 +38,6 @@ if($palabra=="" || ereg("^[a-zA-Z]$", $palabra)){
     }
     $letras=letras($letra,$palabra,$acertadas,$malas);
     $letrascorrectas=letrasacertadas($palabra,$acertadas,$numero);
-}
 
 //$palabra,$letra
 function letrasacertadas ($palabra,$acertadas,&$numero){
@@ -46,16 +46,37 @@ function letrasacertadas ($palabra,$acertadas,&$numero){
     for($i=0;$i<strlen($palabra);$i++){
         if(strpos($acertadas,$palabra[$i])!==false){
             if($i==0){
-                 $letrascorrectas.="<div class='letras' id='mover'>".$palabra[$i]."</div>";
+                if(strpos("ñ",$palabra[$i])!==false){
+                    $i++;
+                    $letrascorrectas.="<div class='letras' id='mover'>&#209;</div>";
+                }else{
+                    $letrascorrectas.="<div class='letras' id='mover'>".$palabra[$i]."</div>";
+                }
             }else{
-                $letrascorrectas.="<div class='letras'>".$palabra[$i]."</div>";
+                if(strpos("ñ",$palabra[$i])!==false){
+                    $i++;
+                    $letrascorrectas.="<div class='letras'>&#209;</div>";
+                }else{
+
+                    $letrascorrectas.="<div class='letras'>".$palabra[$i]."</div>";
+                }
             }
             $contador++;
         }else{
              if($i==0){
-                 $letrascorrectas.="<div class='letras' id='mover'></div>";
+                if(strpos("ñ",$palabra[$i])!==false){
+                    $i++;
+                    $letrascorrectas.="<div class='letras' id='mover'></div>";
+                }else{
+                    $letrascorrectas.="<div class='letras' id='mover'></div>";
+                }
              }else{
-                $letrascorrectas.="<div class='letras'></div>";
+                if(strpos("ñ",$palabra[$i])!==false){
+                    $i++;
+                    $letrascorrectas.="<div class='letras'></div>";
+                }else{
+                    $letrascorrectas.="<div class='letras'></div>";
+                }
              }
             $contador--;
         }
