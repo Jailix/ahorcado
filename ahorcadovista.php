@@ -61,15 +61,20 @@
             enviar(pala);
         }
         function enviar (pala){
-            if(/^([a-zA-Z]|ñ|Ñ)*$/.test(pala)|| pala=='Ç'){
-                document.getElementById("acertada").value="";
-                document.getElementById("malas").value='';
-                document.getElementById("vidas").value=6;
-                document.getElementById("valor").value='a';
-                document.getElementById("palabra").value=pala;
-                document.getElementById("form").submit();
-            }else{
-                alert('Solo puedes introducir letras');
+            h=0
+            while(h==0){
+                if(/^([a-zA-Z]|ñ|Ñ)*$/.test(pala)|| pala=='Ç'){
+                    document.getElementById("acertada").value="";
+                    document.getElementById("malas").value='';
+                    document.getElementById("vidas").value=6;
+                    document.getElementById("valor").value='a';
+                    document.getElementById("palabra").value=pala;
+                    document.getElementById("form").submit();
+                    h=1;
+                }else{
+                    alert('Solo puedes introducir letras');
+                    pala=prompt('Introduce una palabra:','');
+                }
             }
         }
         function partida (){

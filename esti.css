@@ -3,14 +3,9 @@ html,body{
             height: 100%;
         }
         body{
+            background-image: url(fondo.jpg);
+            background-size: cover;
             background-repeat: no-repeat;
-            background: #3b679e; /* Old browsers */
-            background: -moz-linear-gradient(-45deg,  #3b679e 0%, #207cca 27%, #207cca 27%, #2b88d9 56%, #7db9e8 100%); /* FF3.6+ */
-            background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#3b679e), color-stop(27%,#207cca), color-stop(27%,#207cca), color-stop(56%,#2b88d9), color-stop(100%,#7db9e8)); /* Chrome,Safari4+ */
-            background: -webkit-linear-gradient(-45deg,  #3b679e 0%,#207cca 27%,#207cca 27%,#2b88d9 56%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
-            background: -o-linear-gradient(-45deg,  #3b679e 0%,#207cca 27%,#207cca 27%,#2b88d9 56%,#7db9e8 100%); /* Opera 11.10+ */
-            background: -ms-linear-gradient(-45deg,  #3b679e 0%,#207cca 27%,#207cca 27%,#2b88d9 56%,#7db9e8 100%); /* IE10+ */
-            background: linear-gradient(135deg,  #3b679e 0%,#207cca 27%,#207cca 27%,#2b88d9 56%,#7db9e8 100%); /* W3C */
         }
         .letras{
             text-align: center;
@@ -127,3 +122,36 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', end
         button{
             margin-top:22%;
         }
+        @media screen and (min-width:750px) and (max-width:1050px){
+            .teclado div{
+                font-size: 150%;
+            }
+            .letras{
+                font-size: 250%;
+            }
+        }
+        @media screen and (min-width:520px) and (max-width:749px){
+            .teclado div{
+                font-size: 130%;
+            }
+            .letras{
+                font-size: 180%;
+            }
+            button{
+                margin-top:18%;
+                font-size: 50%;
+            }
+        }
+        @media screen and (max-width:519px){
+            .teclado div{
+                font-size: 100%;
+            }
+            .letras{
+                font-size: 100%;
+            }
+            button{
+                margin-top:8%;
+                font-size: 30%;
+            }
+        }
+

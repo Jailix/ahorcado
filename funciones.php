@@ -2,7 +2,7 @@
     $palabra=isset($_POST['palabra'])? filter_input(INPUT_POST, 'palabra',FILTER_SANITIZE_STRING):"hola";
     $array = array("BAR","CAFETERIA","RELOJ","MUSICA","COCHE","PERRO");
     if($palabra=='Ç'){
-        $palabra=$array[rand( 0 , count($array)-1)];
+        $palabra=$array[rand(0,count($array)-1)];
     }
     $mostrarimagenes='';
     $numero=1;
@@ -11,7 +11,7 @@
 
     $malas=isset($_POST['malas'])? filter_input(INPUT_POST, 'malas',FILTER_SANITIZE_STRING):"";
 
-    $vidas=isset($_POST['vidas'])? filter_input(INPUT_POST, 'vidas',FILTER_SANITIZE_STRING):"5";
+    $vidas=isset($_POST['vidas'])? filter_input(INPUT_POST, 'vidas',FILTER_SANITIZE_STRING):"6";
 
     $letra=isset($_POST['letra'])? filter_input(INPUT_POST, 'letra',FILTER_SANITIZE_STRING):"4";
     if(false!==strpos($palabra,$letra)){
