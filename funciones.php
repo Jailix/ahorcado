@@ -42,8 +42,9 @@
 //$palabra,$letra
 function letrasacertadas ($palabra,$acertadas,&$numero){
     $letrascorrectas="";
+    $apariciones=strlen($palabra);
     $contador=0;
-    for($i=0;$i<strlen($palabra);$i++){
+    for($i=0;$i<$apariciones;$i++){
         if(strpos($acertadas,$palabra[$i])!==false){
             if($i==0){
                 if(strpos("ñ",$palabra[$i])!==false){
@@ -81,7 +82,7 @@ function letrasacertadas ($palabra,$acertadas,&$numero){
             $contador--;
         }
     }
-    if($contador==strlen($palabra)){
+    if($contador==$apariciones){
         $numero=0;
     }
     return $letrascorrectas;

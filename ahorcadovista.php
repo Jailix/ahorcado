@@ -45,7 +45,7 @@
         <input type="submit">
     </form>
     <button onclick="palabra()">Introduce una palabra nueva</button>
-    <button onclick="enviar('Ç')">Nueva palabra rambom</button>
+    <button onclick="enviar('Ç')">Nueva palabra ramdom</button>
     <script type="text/javascript">
         function mirar(letra,tipo){
             if(tipo==0 || tipo==1){//false
