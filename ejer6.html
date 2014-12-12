@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DSW</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="../../ico.ico">
+    <link href="../../estilo.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+   <div id="containe">
+          <h1>Tarea 2.6. Práctica del ahorcado.</h1>
+           <div class="parte">
+              <p>Se trata de realizar el tipico juego del ahorcado.</p>
+               <div class="enjoy-css" onclick="enviar('1')">Mostrar</div>
+
+           </div>
+   </div>
+   <div  class="parte" id="volver">
+               <div class="enjoy-css" onclick="enviar('')">Volver a DSW</div>
+
+
+    </div>
+   <script>
+
+        function enviar(valor){
+            if("1"==valor){
+                location.href="ahorcadovista.php";
+            }else{
+                location.href="../../dsw.html";
+            }
+
+        }
+
+    </script>
+</body>
+</html>
