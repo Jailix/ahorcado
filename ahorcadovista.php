@@ -1,10 +1,12 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>vista</title>
+    <title>Ahorcado</title>
     <!--<link rel="icon" href="../../ico.ico">-->
     <link rel="stylesheet" type="text/css" href="esti.css">
     <?php require_once('funciones.php')?>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="../../ico.ico">
     <style>
 
         #mover{
@@ -46,7 +48,18 @@
     </form>
     <button onclick="palabra()">Introduce una palabra nueva</button>
     <button onclick="enviar('Ç')">Nueva palabra ramdom</button>
+    <div  class="parte" id="volver">
+               <div class="enjoy-css" onclick="envia('1')">Volver a DSW</div>
+
+
+    </div>
     <script type="text/javascript">
+        function envia(valor){
+            if('1'==valor){
+                location.href="../../dsw.html";
+            }
+
+        }
         function mirar(letra,tipo){
             if(tipo==0 || tipo==1){//false
                 alert("Ya fue pulsada");
@@ -58,7 +71,9 @@
 
         function palabra (){
             pala=prompt('Introduce una palabra:','');
-            enviar(pala);
+            if(pala!=undefined){
+                enviar(pala);
+            }
         }
         function enviar (pala){
             h=0
